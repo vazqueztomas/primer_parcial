@@ -17,19 +17,56 @@ def muestra(vector):
         print(vector[i], end = " ")   
 
 def buscaElementos(vector, numero):
-    long = len(vector)
-    coincidencias = 0
     i = 0
-    while (i < long):
+    n = len(vector)
+    coincidencia = 0
+    # Para devolver coincidencia
+    while (i < n):        
         if vector[i] == numero:
-            coincidencias += 1
+            coincidencia += 1        
         i += 1
-    return coincidencias
-        
+    
+    encontrado = True
+    posi = 0
+    while (i < n and encontrado):        
+        if vector[i] == numero:
+            posi = vector[i]
+            encontrado = False
+     
+    return coincidencia, posi       
+
 ## Prueba ejercicio A
-carga (vector)
+# carga (vector)
+# muestra(vector)
+# print()
+# print(f'{buscaElementos(vector, 4)} coincidencias con el numero 4.')
+
+#Realizar un programa que permita, a través de un módulo (función o procedimiento) 
+#ordenar un arreglo de 20 elementos. Este módulo recibirá dos parámetros : 
+#el primero indicará arreglo a ordenar, y el segundo indicará si el orden será “A” - Ascendente (de menor a mayor) 
+#o “D” Descendente (de mayor a menor)
+
+def arreglar_array(vect, orden):
+    n = len(vect)
+    #vector a ordenar por bubblesort
+    
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if vect[j] > vect[j + 1]:
+                temp = vect[j]
+                vect[j] = vect[j + 1]
+                vect[j + 1] = temp
+            
+   
+    
+    # direccion del orden
+    if orden == 'a' or orden == 'A':
+        return vect
+    elif orden == 'D' or orden == 'd':
+        return vect[::-1]
+    
+    
 muestra(vector)
 print()
-print(f'{buscaElementos(vector, 4)} coincidencias con el numero 4.')
-    
-         
+print(f'vector ascendiente = {arreglar_array(vector, "A")}')
+print(f'vector descendiente = {arreglar_array(vector, "D")}')
