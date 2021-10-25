@@ -53,3 +53,35 @@ def calcularSumaParImpar(vec1, vec2):
     return total
 
 print(calcularSumaParImpar(arr1, arr2))
+
+print()
+# Escribir un procedimiento que permita pasar los elementos a la derecha
+
+# Cargar un vector con 50 elementos numéricos y calcular la cantidad de números negativos, positivos y ceros que se encuentran en el vector.  
+vector_50e = [0] * 50
+
+def cargaVectorEspecial(vec):
+    for i in range(len(vec)):
+        vec[i] = random.randint(-100,100)
+    return vec
+
+cargaVectorEspecial(vector_50e)
+mostrarV(vector_50e)
+print() 
+
+def negPosZero(vec):
+    pos = 0
+    neg = 0
+    zero = 0
+    for i in range(len(vec)):
+        if vec[i] > 0:
+            pos += 1
+        elif vec[i] < 0:
+            neg += 1
+        else:
+            zero += 1
+    print(f'Positivos: {pos}, negativos {neg}, ceros {zero}')
+
+    return pos,neg,zero
+
+negPosZero(vector_50e)
