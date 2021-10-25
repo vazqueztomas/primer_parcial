@@ -6,7 +6,7 @@ vector_b = [0] * 5
 # funcion para cargar vectores
 def cargarV(vector):
     for i in range(len(vector)):
-        vector[i] = random.randint(1, 10) 
+        vector[i] = random.randint(1, 2) 
     return vector
 cargarV(vector_a)
 cargarV(vector_b)
@@ -85,3 +85,68 @@ def negPosZero(vec):
     return pos,neg,zero
 
 negPosZero(vector_50e)
+
+
+
+
+
+# Ingresar 1000 edades en un vector e indicar cuál es la edad de mayor frecuencia (la que más se repite).  
+vector_edades = [0] * 10
+
+cargarV(vector_edades)
+
+def mostrarMasRepite(vector):
+    numero_aux = 0
+    for i in range(len(vector)):
+        print(vector.count(i), end = " ")
+        
+    return vector[i]
+
+
+
+
+
+# Realizar una función que determine si dos vectores cargados con números naturales, de igual cantidad de elementos, son idénticos.  
+vector_igual1 = [0]*2
+vector_igual2 = [0]*2
+
+cargarV(vector_igual1)
+cargarV(vector_igual2)
+mostrarV(vector_igual1)
+print()
+mostrarV(vector_igual2)
+print()
+
+def verificarIdenticos(vector1, vector2):
+    i, n = 0, len(vector_igual1)
+    repite = True
+    while i < n and repite:
+        if vector1[i] == vector2[i]:
+            repite = True
+            i += 1
+        else:
+            repite= False
+    
+    print("IDENTICO") if repite else print("NO SON IDENTICOS")
+    
+verificarIdenticos(vector_igual1,vector_igual2)
+
+
+
+
+
+# Escribir un procedimiento que acepte como parámetro un vector que contiene números positivos, que puede contener valores duplicados, y reemplace cada elemento repetido por -1 (menos uno).  El procedimiento debe retornar el vector modificado y la cantidad de veces que fue modificado.  
+
+def vectorModificado(vector):
+    new_vec = []
+    for i in range(len(vector)):
+        if i not in new_vec:
+            vector[i] = -1
+            new_vec += i
+    return vector, new_vec        
+    
+    
+
+print(vectorModificado(vector_igual2))
+
+        
