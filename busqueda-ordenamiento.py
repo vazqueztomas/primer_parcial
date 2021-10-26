@@ -70,3 +70,22 @@ muestra(vector)
 print()
 print(f'vector ascendiente = {arreglar_array(vector, "A")}')
 print(f'vector descendiente = {arreglar_array(vector, "D")}')
+
+# Escribir una función que reciba una lista ordenada y un elemento. Si el elemento se encuentra en la lista, debe encontrar su posición mediante búsqueda binaria y devolverlo. Si no se encuentra, debe agregarlo a la lista en la posición correcta y devolver esa nueva posición.
+
+def busquedaBinaria(vector, elem):
+    i = 0
+    leng = (len(vector))
+    med = 0
+
+    while (i <= leng):
+        med = (i + leng) // 2
+        if vector[i] < elem:
+            i = med + 1
+        elif (vector[i] > elem):
+            leng = med - 1
+        else:
+            return med
+    return -1
+
+
